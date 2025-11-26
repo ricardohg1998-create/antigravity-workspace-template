@@ -152,14 +152,22 @@ AI 会自动：
 - [x] **阶段 1：基础**（脚手架、配置、记忆）
 - [x] **阶段 2：DevOps**（Docker、CI/CD）
 - [x] **阶段 3：Antigravity 合规**（规则、产物）
-
+- [x] **阶段 4：高级记忆**（摘要缓冲区已实现 ✅）
+- [x] **阶段 5：认知架构**（通用工具调度已实现 ✅）
+- [x] **阶段 6：动态发现**（自动工具与上下文加载 ✅）
+- [x] **阶段 7：多智能体 Swarm**（路由器-工作者编排 ✅）
+- [ ] **阶段 8：企业级核心** ("Agent OS" 愿景) - *由 [@devalexanderdaza](https://github.com/devalexanderdaza) 提议*
+  - [ ] **MCP 集成**：导入/暴露模型上下文协议服务器，实现通用工具连接。
+  - [ ] **沙箱环境**：安全代码执行（如 E2B 或本地 Docker），用于高风险操作。
+  - [ ] **编排工作流**：用于复杂任务的结构化、并行执行管道 (DAG)。
 
 ## 👥 贡献者
 
 特别感谢参与本项目建设的社区成员：
 
-- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 **(首位贡献者!)**
+- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(首位贡献者!)**
   - 实现了演示工具脚本，并增强了 Agent 的功能集成。
+  - 提出了 **"Agent OS" 路线图** (MCP, 沙箱, 编排)。
 - [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
   - 添加动态工具和上下文加载 (修复 #4)
   - 新增功能：添加多智能体集群协议 (修复 #6)

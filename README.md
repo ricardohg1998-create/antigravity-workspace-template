@@ -349,6 +349,10 @@ The AI will automatically:
 - [x] **Phase 5: Cognitive Architecture** (Generic Tool Dispatch Implemented ✅)
 - [x] **Phase 6: Dynamic Discovery** (Auto Tool & Context Loading ✅)
 - [x] **Phase 7: Multi-Agent Swarm** (Router-Worker Orchestration ✅)
+- [ ] **Phase 8: Enterprise Core** (The "Agent OS" Vision) - *Proposed by [@devalexanderdaza](https://github.com/devalexanderdaza)*
+  - [ ] **MCP Integration**: Import/Expose Model Context Protocol servers for universal tool connectivity.
+  - [ ] **Sandbox Environment**: Safe code execution (e.g., E2B or local Docker) for high-risk operations.
+  - [ ] **Orchestrated Flows**: Structured, parallel execution pipelines (DAGs) for complex tasks.
 
 ## 🔥 New: True Zero-Config Tool & Context Loading
 
@@ -438,8 +442,10 @@ print(result)
 
 A massive thank you to the community members who help build this project:
 
-- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 **(First Contributor!)**
+
+- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(First Contributor!)**
   - Implemented demo tools script and enhanced agent functionality.
+  - Proposed the **"Agent OS" Roadmap** (MCP, Sandbox, Orchestration).
 - [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
   - Added dynamic tools and context loading (Fixes #4)
   - New feature: Add multi-agent cluster protocol (Fixes #6)

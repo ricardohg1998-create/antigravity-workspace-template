@@ -152,14 +152,22 @@ La IA automáticamente:
 - [x] **Fase 1: Fundación** (Andamiaje, Configuración, Memoria)
 - [x] **Fase 2: DevOps** (Docker, CI/CD)
 - [x] **Fase 3: Cumplimiento Antigravity** (Reglas, Artefactos)
-
+- [x] **Fase 4: Memoria Avanzada** (Búfer de Resumen Implementado ✅)
+- [x] **Fase 5: Arquitectura Cognitiva** (Despacho de Herramientas Genérico Implementado ✅)
+- [x] **Fase 6: Descubrimiento Dinámico** (Carga Automática de Herramientas y Contexto ✅)
+- [x] **Fase 7: Enjambre Multi-Agente** (Orquestación Router-Worker ✅)
+- [ ] **Fase 8: Núcleo Empresarial** (La Visión "Agent OS") - *Propuesto por [@devalexanderdaza](https://github.com/devalexanderdaza)*
+  - [ ] **Integración MCP**: Importar/Exponer servidores del Protocolo de Contexto de Modelo para conectividad universal de herramientas.
+  - [ ] **Entorno Sandbox**: Ejecución segura de código (ej. E2B o Docker local) para operaciones de alto riesgo.
+  - [ ] **Flujos Orquestados**: Tuberías de ejecución estructuradas y paralelas (DAGs) para tareas complejas.
 
 ## 👥 Colaboradores
 
 Un agradecimiento especial a los miembros de la comunidad que han contribuido a este proyecto:
 
-- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 **(¡Primer Colaborador!)**
+- [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(¡Primer Colaborador!)**
   - Implementó scripts de herramientas de demostración y mejoró la funcionalidad del agente.
+  - Propuso el **Roadmap "Agent OS"** (MCP, Sandbox, Orquestación).
 - [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
   - Se agregaron herramientas dinámicas y carga de contexto (Arregla #4)
   - Nueva característica: Agregar protocolo de clúster multi-agente (Arregla #6)
