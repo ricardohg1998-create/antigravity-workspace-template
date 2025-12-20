@@ -1,5 +1,7 @@
 # 🪐 Google Antigravity Workspace Template (Enterprise Edition)
 
+Language: [English](README.md) | [中文](README_CN.md) | [Español](README_ES.md)
+
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Gemini](https://img.shields.io/badge/AI-Gemini_2.0_Flash-blue)
 ![Architecture](https://img.shields.io/badge/Architecture-Event_Driven-purple)
@@ -75,6 +77,7 @@ sequenceDiagram
 - 🧠 **Infinite Memory Engine**: Recursive summarization automatically compresses history. Context limits are a thing of the past.
 - 🛠️ **Universal Tool Protocol**: Generic ReAct pattern. Just register any Python function in `available_tools`, and the Agent learns to use it.
 - ⚡️ **Gemini Native**: Optimized for Gemini 2.0 Flash's speed and function calling capabilities.
+- 🔌 **External LLM (OpenAI-format)**: Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (supports OpenAI/Azure/Ollama).
 
 ## 🚀 Quick Start
 
@@ -358,6 +361,23 @@ The AI will automatically:
 
 **Connect to any MCP server!** The agent now supports the [Model Context Protocol](https://modelcontextprotocol.io/), enabling seamless integration with external tools and services.
 
+## 🌐 New: External LLM (OpenAI-Compatible) Support
+
+Use any OpenAI-format chat completion endpoint (OpenAI, Azure OpenAI, local Ollama, etc.) to drive the agent with a unified API.
+
+1) Configure environment:
+```bash
+OPENAI_BASE_URL=https://api.openai.com/v1   # or http://localhost:11434/v1 for Ollama
+OPENAI_API_KEY=sk-...                       # leave empty if not required
+OPENAI_MODEL=gpt-4o-mini                    # or your preferred model
+```
+2) Use the tool:
+   - Tool name: `call_openai_chat`
+   - Args: `prompt` (str), optional `system`, `model`, `temperature`, `max_tokens`.
+3) Behavior:
+   - Follows standard OpenAI `/chat/completions` schema.
+   - Returns the text content of the first choice, or an error message on failure.
+
 ### 🌐 What is MCP?
 
 MCP is an open protocol that standardizes how AI applications connect to external data sources and tools. With MCP integration, your Antigravity agent can:
@@ -577,11 +597,16 @@ A massive thank you to the community members who help build this project:
 - [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(First Contributor!)**
   - Implemented demo tools script and enhanced agent functionality.
   - Proposed the **"Agent OS" Roadmap** (MCP, Sandbox, Orchestration).
+  - Completed the MCP integration setup.
 - [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
   - Added dynamic tools and context loading (Fixes #4)
   - New feature: Add multi-agent cluster protocol (Fixes #6)
 
 **Want to contribute?** Check out our [Issues](https://github.com/study8677/antigravity-workspace-template/issues) page!
+
+## ⭐ Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=study8677/antigravity-workspace-template&type=Date)](https://star-history.com/#study8677/antigravity-workspace-template&Date)
 
 ## 💡 Call for Ideas: Swarm Protocol
 

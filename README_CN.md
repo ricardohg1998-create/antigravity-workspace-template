@@ -1,4 +1,5 @@
 ﻿# 🪐 Google Antigravity 工作区模板（企业版）
+语言版本: [English](README.md) | [中文](README_CN.md) | [Espanol](README_ES.md)
 
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -76,6 +77,7 @@ sequenceDiagram
 - 🧠 **无限记忆引擎**：递归式摘要自动压缩历史，打破上下文限制。
 - 🛠️ **通用工具协议**：通用 ReAct 模式。把任意 Python 函数注册到 `available_tools`，Agent 即可学会调用。
 - ⚡️ **Gemini 原生**：针对 Gemini 2.0 Flash 的速度与函数调用能力做了优化。
+- 🔌 **外部 LLM（OpenAI 兼容）**：通过内置 `call_openai_chat` 工具，以统一的 OpenAI 接口调用外部大模型（OpenAI/Azure/Ollama 等）。
 
 ## 🚀 快速开始
 
@@ -161,6 +163,26 @@ AI 会自动：
   - [ ] **沙箱环境**：安全代码执行（如 E2B 或本地 Docker），用于高风险操作。
   - [ ] **编排工作流**：用于复杂任务的结构化、并行执行管道 (DAG)。
 
+## 🌐 新增：外部 LLM（OpenAI 兼容）
+
+使用任意 OpenAI 接口格式的聊天补全端点（OpenAI/Azure/Ollama 等）来驱动 Agent。
+
+1) 配置环境变量：
+```bash
+OPENAI_BASE_URL=https://api.openai.com/v1   # 或 http://localhost:11434/v1 等 OpenAI 兼容端点
+OPENAI_API_KEY=sk-...                       # 若端点无需鉴权可留空
+OPENAI_MODEL=gpt-4o-mini                    # 或你的模型名
+```
+2) 工具：`call_openai_chat`（参数：prompt，system，可选 model、temperature、max_tokens）。
+3) 行为：遵循标准 `/chat/completions` JSON，返回第一条消息文本或错误信息。
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=study8677/antigravity-workspace-template&type=Date)](https://star-history.com/#study8677/antigravity-workspace-template&Date)
+
+
+## Star History
+
 ## 👥 贡献者
 
 特别感谢参与本项目建设的社区成员：
@@ -168,6 +190,7 @@ AI 会自动：
 - [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(首位贡献者!)**
   - 实现了演示工具脚本，并增强了 Agent 的功能集成。
   - 提出了 **"Agent OS" 路线图** (MCP, 沙箱, 编排)。
+  - 完成 MCP 搭建
 - [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
   - 添加动态工具和上下文加载 (修复 #4)
   - 新增功能：添加多智能体集群协议 (修复 #6)
@@ -180,3 +203,5 @@ AI 会自动：
 我们目前正在为 **第六阶段：多智能体 Swarm** 进行架构头脑风暴。如果您能提供可靠的架构建议或详细设计并被采纳，**您将被列入我们的 README 贡献者名单**。
 
 即使您没有时间编写实现代码，也请随时在 [Issues](https://github.com/study8677/antigravity-workspace-template/issues) 中分享您的想法。
+
+

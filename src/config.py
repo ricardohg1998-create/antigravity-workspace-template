@@ -37,6 +37,20 @@ class Settings(BaseSettings):
     AGENT_NAME: str = "AntigravityAgent"
     DEBUG_MODE: bool = False
 
+    # External LLM (OpenAI-compatible) Configuration
+    OPENAI_BASE_URL: str = Field(
+        default="",
+        description="Base URL for OpenAI-compatible API (e.g., https://api.openai.com/v1 or http://localhost:11434/v1)",
+    )
+    OPENAI_API_KEY: str = Field(
+        default="",
+        description="API key for OpenAI-compatible endpoint. Leave blank if not required.",
+    )
+    OPENAI_MODEL: str = Field(
+        default="gpt-4o-mini",
+        description="Default model name for OpenAI-compatible chat completions.",
+    )
+
     # Memory Configuration
     MEMORY_FILE: str = "agent_memory.json"
 

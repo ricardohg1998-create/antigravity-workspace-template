@@ -1,4 +1,5 @@
 ﻿# 🪐 Plantilla de Espacio de Trabajo Google Antigravity (Edición Empresarial)
+Idiomas: [English](README.md) | [中文](README_CN.md) | [Espanol](README_ES.md)
 
 ![License](https://img.shields.io/badge/License-MIT-green)
 
@@ -76,6 +77,7 @@ sequenceDiagram
 - 🧠 **Motor de Memoria Infinita**: La resumición recursiva comprime el historial automáticamente; los límites de contexto dejan de ser un problema.
 - 🛠️ **Protocolo Universal de Herramientas**: Patrón ReAct genérico. Registra cualquier función de Python en `available_tools` y el Agente sabrá usarla.
 - ⚡️ **Nativo de Gemini**: Optimizado para la velocidad y las llamadas a funciones de Gemini 2.0 Flash.
+- 🔌 **LLM externo (compatible OpenAI)**: Usa la herramienta `call_openai_chat` para llamar cualquier endpoint formato OpenAI (OpenAI/Azure/Ollama).
 
 ## 🚀 Inicio Rápido
 
@@ -161,6 +163,26 @@ La IA automáticamente:
   - [ ] **Entorno Sandbox**: Ejecución segura de código (ej. E2B o Docker local) para operaciones de alto riesgo.
   - [ ] **Flujos Orquestados**: Tuberías de ejecución estructuradas y paralelas (DAGs) para tareas complejas.
 
+## 🌐 Nuevo: LLM externo (compatible OpenAI)
+
+Usa cualquier endpoint de chat tipo OpenAI (OpenAI, Azure OpenAI, Ollama, etc.) para dirigir el agente con una API unificada.
+
+1) Configura variables de entorno:
+```bash
+OPENAI_BASE_URL=https://api.openai.com/v1   # o http://localhost:11434/v1 para Ollama u otro endpoint OpenAI-compatible
+OPENAI_API_KEY=sk-...                       # déjalo vacío si el endpoint no requiere clave
+OPENAI_MODEL=gpt-4o-mini                    # o el modelo que prefieras
+```
+2) Herramienta: `call_openai_chat` (args: prompt, system, opcional model/temperature/max_tokens).
+3) Comportamiento: sigue el esquema estándar `/chat/completions` y devuelve el texto del primer choice o un mensaje de error.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=study8677/antigravity-workspace-template&type=Date)](https://star-history.com/#study8677/antigravity-workspace-template&Date)
+
+
+## Star History
+
 ## 👥 Colaboradores
 
 Un agradecimiento especial a los miembros de la comunidad que han contribuido a este proyecto:
@@ -168,6 +190,7 @@ Un agradecimiento especial a los miembros de la comunidad que han contribuido a 
 - [@devalexanderdaza](https://github.com/devalexanderdaza) 💻 🧠 **(¡Primer Colaborador!)**
   - Implementó scripts de herramientas de demostración y mejoró la funcionalidad del agente.
   - Propuso el **Roadmap "Agent OS"** (MCP, Sandbox, Orquestación).
+  - Completó la configuración de MCP
 - [@Subham-KRLX](https://github.com/Subham-KRLX) 💻
   - Se agregaron herramientas dinámicas y carga de contexto (Arregla #4)
   - Nueva característica: Agregar protocolo de clúster multi-agente (Arregla #6)
@@ -180,3 +203,4 @@ Un agradecimiento especial a los miembros de la comunidad que han contribuido a 
 Actualmente estamos ideando la arquitectura para la **Fase 6: Swarm Multi-Agente**. Si proporcionas una sugerencia arquitectónica sólida o un diseño detallado que sea adoptado, **serás añadido a nuestro README como Colaborador**.
 
 No dudes en compartir tus pensamientos en los [Issues](https://github.com/study8677/antigravity-workspace-template/issues), incluso si no tienes tiempo para escribir la implementación.
+
