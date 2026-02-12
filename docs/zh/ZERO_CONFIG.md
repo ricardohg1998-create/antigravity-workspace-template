@@ -29,6 +29,24 @@ def analyze_sentiment(text: str) -> dict:
 - 使用类型注解，避免模糊参数。  
 - 一个函数只做一件事，不要用 `*args/**kwargs` 随意接收。  
 
+## 🎓 自动发现 Skill
+
+把一个技能目录放到 `src/skills/` 下（包含 `SKILL.md`，可选 `tools.py`），Agent 会自动加载：
+- `SKILL.md` 内容会注入提示上下文
+- `tools.py` 中的公开函数会注册为可调用工具
+
+### 内置示例：`agent-repo-init`
+
+当前仓库包含：
+- `src/skills/agent-repo-init/`：Agent 内部可调用 skill（`init_agent_repo`）
+- `skills/agent-repo-init/`：可移植 skill 包（脚本入口）
+
+`agent-repo-init` 支持：
+- `quick`：干净脚手架初始化
+- `full`：脚手架 + 运行时默认配置（`.env`、mission、上下文 profile、初始化报告）
+
+可用于从本模板初始化一个干净的新项目，避免继承本地运行态数据（如 `.git`、缓存目录、本地虚拟环境、运行时记忆文件）。
+
 ## 📚 自动注入上下文
 
 把知识文件放到 `.context/` 会被自动拼接进系统提示，Agent 对话天然“带背景”。

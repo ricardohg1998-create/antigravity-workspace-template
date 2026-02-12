@@ -24,6 +24,10 @@ Recursive summarization automatically compresses history—context limits are a 
 ### 🛠️ Universal Tool Protocol
 Generic ReAct pattern. Just register any Python function in `src/tools/`, and the Agent learns to use it automatically.
 
+### 🎓 Skill-Based Project Initialization
+Use the built-in `agent-repo-init` skill to bootstrap a clean repository from this template.
+It supports `quick` and `full` modes and includes a portable script at `skills/agent-repo-init/scripts/init_project.py`.
+
 ### ⚡️ Gemini Native
 Optimized for Gemini 2.0 Flash's speed and function calling capabilities.
 
@@ -38,6 +42,7 @@ Call any OpenAI-compatible API via the built-in `call_openai_chat` tool (support
 |------|----------------|
 | Get started with the agent | [Quick Start](QUICK_START.md) |
 | Build a custom tool | [Zero-Config Features](ZERO_CONFIG.md) |
+| Initialize a new project from this template | [Zero-Config Features](ZERO_CONFIG.md) |
 | Connect to an MCP server | [MCP Integration](MCP_INTEGRATION.md) |
 | Use multiple agents | [Multi-Agent Swarm](SWARM_PROTOCOL.md) |
 | Understand the architecture | [Project Philosophy](PHILOSOPHY.md) |
@@ -107,6 +112,9 @@ A: Yes! Set `OPENAI_BASE_URL` and `OPENAI_API_KEY` in `.env`. See [Quick Start](
 
 **Q: How do I add a custom tool?**  
 A: Drop a Python file in `src/tools/` with your functions. No registration needed! See [Zero-Config Features](ZERO_CONFIG.md).
+
+**Q: How do I initialize a fresh project from this template?**  
+A: Use the `agent-repo-init` skill in `quick` or `full` mode, or run `skills/agent-repo-init/scripts/init_project.py`. See [Zero-Config Features](ZERO_CONFIG.md).
 
 **Q: How do I deploy to production?**  
 A: Use Docker! See [Quick Start](QUICK_START.md) Docker section.

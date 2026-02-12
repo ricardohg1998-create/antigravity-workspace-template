@@ -108,6 +108,24 @@ src/tools/
 
 All 7 functions are automatically discovered and available to the agent!
 
+## 🎓 Auto Skill Discovery
+
+Drop a folder under `src/skills/` with `SKILL.md` and optional `tools.py`, and the agent will load both:
+- Skill docs from `SKILL.md` into prompt context
+- Public functions from `tools.py` as callable tools
+
+### Built-in Example: `agent-repo-init`
+
+This repository includes:
+- `src/skills/agent-repo-init/`: in-agent skill integration (`init_agent_repo`)
+- `skills/agent-repo-init/`: portable skill package with script runner
+
+`agent-repo-init` supports:
+- `quick` mode: clean scaffold
+- `full` mode: scaffold + runtime profile defaults (`.env`, mission, context profile, init report)
+
+Use it to create a clean project copy from this template without inheriting local runtime state (for example `.git`, caches, local virtual environments, and runtime memory files).
+
 ## 📚 Auto Context Loading
 
 Add knowledge to `.context/` and it's automatically injected into every agent prompt—no configuration needed.

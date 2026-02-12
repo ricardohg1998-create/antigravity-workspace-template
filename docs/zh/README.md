@@ -24,6 +24,10 @@
 ### 🛠️ 通用工具协议
 遵循通用 ReAct 模式；在 `src/tools/` 放入 Python 函数即被自动注册为工具。
 
+### 🎓 基于 Skill 的项目初始化
+使用内置 `agent-repo-init` skill 可以从当前模板快速初始化干净的新仓库。
+支持 `quick` 与 `full` 两种模式，并提供可移植脚本 `skills/agent-repo-init/scripts/init_project.py`。
+
 ### ⚡️ Gemini 原生
 针对 Gemini 2.0 Flash 的速度与函数调用能力做了优化。
 
@@ -36,6 +40,7 @@
 |------|------|
 | 体验与运行 | [快速开始](QUICK_START.md) |
 | 编写自定义工具 | [零配置特性](ZERO_CONFIG.md) |
+| 从当前模板初始化新项目 | [零配置特性](ZERO_CONFIG.md) |
 | 连接 MCP 服务器 | [MCP 集成](MCP_INTEGRATION.md) |
 | 启用多 Agent | [多 Agent Swarm](SWARM_PROTOCOL.md) |
 | 理解架构 | [项目理念](PHILOSOPHY.md) |
@@ -99,6 +104,9 @@ A: 可以，设置 `.env` 中的 `OPENAI_BASE_URL` 与 `OPENAI_API_KEY`，详见
 
 **Q: 如何添加自定义工具？**  
 A: 将 Python 文件放进 `src/tools/`，无需额外注册，见 [零配置特性](ZERO_CONFIG.md)。
+
+**Q: 如何基于模板初始化一个新项目？**  
+A: 使用 `agent-repo-init` 的 `quick/full` 模式，或直接运行 `skills/agent-repo-init/scripts/init_project.py`，见 [零配置特性](ZERO_CONFIG.md)。
 
 **Q: 如何部署到生产？**  
 A: 使用 Docker，参考 [快速开始](QUICK_START.md) Docker 部分。

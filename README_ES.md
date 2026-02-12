@@ -119,7 +119,7 @@ Esto **no** es otro wrapper de LangChain. Es un workspace mínimo y transparente
 |---------|-------------|
 | 🧠 **Memoria infinita** | La resumización recursiva comprime el contexto automáticamente |
 | 🧠 **Pensamiento Real** | Paso de "Deep Think" (Chain-of-Thought) antes de actuar |
-| 🎓 **Sistema de Habilidades** | Capacidades modulares como carpetas (`src/skills/`) con carga automática |
+| 🎓 **Sistema de Habilidades** | Capacidades modulares como carpetas (`src/skills/`) con carga automática (incluye `agent-repo-init`) |
 | 🛠️ **Herramientas universales** | Coloca funciones Python en `src/tools/` → se descubren solas |
 | 📚 **Contexto automático** | Agrega archivos a `.context/` → se inyectan en los prompts |
 | 🔌 **Soporte MCP** | Conecta GitHub, bases de datos, sistemas de archivos, servidores personalizados |
@@ -167,6 +167,30 @@ def analyze_sentiment(text: str) -> str:
 
 **Reinicia el agente.** ¡Listo! La herramienta ya está disponible.
 
+## 🎓 Ejemplo: inicializar un nuevo repositorio con skill
+
+La skill integrada `agent-repo-init` soporta dos modos:
+- `quick`: scaffold limpio mínimo
+- `full`: scaffold + perfil de runtime (`.env`, mission, perfil de contexto e informe)
+
+Puedes usar el script portable en `skills/agent-repo-init/scripts/init_project.py`:
+
+```text
+python skills/agent-repo-init/scripts/init_project.py \
+  --project-name my-new-agent \
+  --destination-root /absolute/path/for/new/projects \
+  --mode quick
+```
+
+Ejemplo de `full` mode:
+
+```text
+python skills/agent-repo-init/scripts/init_project.py \
+  --project-name my-new-agent \
+  --destination-root /absolute/path/for/new/projects \
+  --mode full --llm-provider openai --enable-mcp --disable-swarm --enable-docker --init-git
+```
+
 ## 🔌 Integración de MCP
 
 Conecta herramientas externas:
@@ -213,6 +237,7 @@ El swarm automáticamente:
 
 - Añadido **Pensamiento Real (True Thinking)**: El agente realiza un paso real de "Deep Think" (CoT) antes de cada acción, generando un plan estructurado.
 - Añadido **Sistema de Habilidades (Skills System)**: Nuevo directorio `src/skills/` permite capacidades modulares basadas en carpetas (Docs + Código).
+- Añadida **skill agent-repo-init**: Inicializa un repositorio limpio y reutilizable desde esta plantilla con `init_agent_repo`.
 - Soporte para backend local compatible con OpenAI (p.ej., Ollama) cuando no hay clave de Google.
 - Corrección de carga de `.env`: ejecutar desde `src/` sigue leyendo la configuración en la raíz del proyecto.
 - Los entrypoints ahora aceptan tareas por argumentos `AGENT_TASK`.

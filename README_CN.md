@@ -119,7 +119,7 @@ python src/agent.py
 |---------|-------------|
 | 🧠 **无限记忆** | 递归摘要自动压缩上下文 |
 | 🧠 **真实思考 (True Thinking)** | 行动前使用思维链 (CoT) 进行“深度思考”，生成执行计划 |
-| 🎓 **技能系统 (Skills System)** | 模块化能力系统：`src/skills/` 下的文件夹自动加载 |
+| 🎓 **技能系统 (Skills System)** | 模块化能力系统：`src/skills/` 下的文件夹自动加载（内置 `agent-repo-init`） |
 | 🛠️ **通用工具** | 将 Python 函数放入 `src/tools/` 即可自动发现 |
 | 📚 **自动上下文** | 向 `.context/` 添加文件即可自动注入提示 |
 | 🔌 **MCP 支持** | 连接 GitHub、数据库、文件系统、自定义服务器 |
@@ -166,6 +166,30 @@ def analyze_sentiment(text: str) -> str:
 ```
 
 **重启 Agent。** 完成！工具已可用。
+
+## 🎓 示例：用 Skill 初始化新仓库
+
+内置 `agent-repo-init` skill 支持两种模式：
+- `quick`：最小化干净脚手架
+- `full`：脚手架 + 运行时默认配置（`.env`、mission、上下文 profile、初始化报告）
+
+可通过可移植脚本 `skills/agent-repo-init/scripts/init_project.py` 运行：
+
+```text
+python skills/agent-repo-init/scripts/init_project.py \
+  --project-name my-new-agent \
+  --destination-root /absolute/path/for/new/projects \
+  --mode quick
+```
+
+`full` 模式示例：
+
+```text
+python skills/agent-repo-init/scripts/init_project.py \
+  --project-name my-new-agent \
+  --destination-root /absolute/path/for/new/projects \
+  --mode full --llm-provider openai --enable-mcp --disable-swarm --enable-docker --init-git
+```
 
 ## 🔌 MCP 集成
 
@@ -215,6 +239,7 @@ Swarm 会自动：
 
 - 新增 **真实思考 (True Thinking)**：Agent 现在会在每次行动前执行真正的“深度思考”（CoT），生成结构化计划。
 - 新增 **技能系统 (Skills System)**：新的 `src/skills/` 目录支持基于文件夹的模块化能力（文档+代码）。
+- 新增 **agent-repo-init skill**：通过 `init_agent_repo` 可从该模板初始化一个可复用的干净仓库。
 - 支持本地 OpenAI 兼容后端（如 Ollama），在没有 Google Key 时可直接用本地模型。
 - 修复 `.env` 读取路径，从 `src/` 运行也能读取项目根目录配置。
 - 入口脚本支持通过参数或 `AGENT_TASK` 指定任务。

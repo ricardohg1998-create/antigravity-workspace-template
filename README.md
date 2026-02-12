@@ -119,7 +119,7 @@ This is **not** another LangChain wrapper. It's a minimal, transparent workspace
 |---------|-------------|
 | 🧠 **Infinite Memory** | Recursive summarization compresses context automatically |
 | 🧠 **True Thinking** | "Deep Think" step using Chain-of-Thought prompts before acting |
-| 🎓 **Skills System** | Modular capabilities as folders (`src/skills/`) with auto-loading |
+| 🎓 **Skills System** | Modular capabilities as folders (`src/skills/`) with auto-loading (includes `agent-repo-init`) |
 | 🛠️ **Universal Tools** | Drop Python functions in `src/tools/` → auto-discovered |
 | 📚 **Auto Context** | Add files to `.context/` → auto-injected into prompts |
 | 🔌 **MCP Support** | Connect GitHub, databases, filesystems, custom servers |
@@ -196,6 +196,30 @@ def analyze_sentiment(text: str) -> str:
 
 **Restart agent.** Done! The tool is now available.
 
+## 🎓 Example: Initialize a New Repo with Skill
+
+The built-in `agent-repo-init` skill supports two modes:
+- `quick`: minimal clean scaffold
+- `full`: scaffold + runtime profile defaults (`.env`, mission, context profile, init report)
+
+You can run the portable script at `skills/agent-repo-init/scripts/init_project.py`:
+
+```text
+python skills/agent-repo-init/scripts/init_project.py \
+  --project-name my-new-agent \
+  --destination-root /absolute/path/for/new/projects \
+  --mode quick
+```
+
+`full` mode example adds profile defaults:
+
+```text
+python skills/agent-repo-init/scripts/init_project.py \
+  --project-name my-new-agent \
+  --destination-root /absolute/path/for/new/projects \
+  --mode full --llm-provider openai --enable-mcp --disable-swarm --enable-docker --init-git
+```
+
 ## 🔌 MCP Integration
 
 Connect to external tools:
@@ -242,6 +266,7 @@ The swarm automatically:
 
 - Added **True Thinking**: The agent now performs a real "Deep Think" step (Chain-of-Thought) before every action, generating a structured plan.
 - Added **Skills System**: New `src/skills/` directory allows for modular, folder-based agent capabilities (Docs + Code).
+- Added **agent-repo-init skill**: Initialize a clean, reusable repository from this template via `init_agent_repo`.
 - Added local OpenAI-compatible backend support (e.g., Ollama) when no Google API key is provided.
 - Fixed `.env` loading so runs from the `src/` folder still read the project-root config.
 - CLI entrypoints (`agent.py` and `src/agent.py`) now accept tasks via arguments `AGENT_TASK`.

@@ -39,6 +39,24 @@ python src/agent.py
 
 El agente descubrirá y usará automáticamente `analyze_sentiment()`.
 
+## 🎓 Descubrimiento Automático de Skills
+
+Coloca una carpeta de skill en `src/skills/` (con `SKILL.md` y opcionalmente `tools.py`) y el agente cargará automáticamente:
+- Documentación de `SKILL.md` en el contexto del prompt
+- Funciones públicas de `tools.py` como herramientas invocables
+
+### Ejemplo integrado: `agent-repo-init`
+
+Este repositorio incluye:
+- `src/skills/agent-repo-init/`: integración de skill dentro del agente (`init_agent_repo`)
+- `skills/agent-repo-init/`: paquete de skill portable con script de ejecución
+
+`agent-repo-init` soporta:
+- `quick`: scaffold limpio
+- `full`: scaffold + perfil de runtime (`.env`, mission, perfil de contexto e informe)
+
+Úsalo para crear una copia limpia del proyecto base sin heredar estado local de runtime (por ejemplo `.git`, cachés, entornos virtuales locales y archivos de memoria en ejecución).
+
 ## 📚 Carga Automática de Contexto
 
 Agrega conocimiento a `.context/` y se inyecta automáticamente en cada prompt del agente—sin configuración necesaria.
