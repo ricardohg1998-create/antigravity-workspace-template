@@ -27,9 +27,10 @@ Necesitas tener instaladas dos cosas básicas en tu ordenador. Si no las tienes,
     *   Descarga: [git-scm.com/downloads](https://git-scm.com/downloads)
     *   Lo usaremos para descargar este proyecto.
 
-3.  **Visual Studio Code (Recomendado)**
-    *   Descarga: [code.visualstudio.com](https://code.visualstudio.com/)
-    *   Es el mejor editor para ver y modificar los archivos de tu agente.
+3.  **Google Antigravity IDE (Recomendado)**
+    *   ¡Ya estás aquí! Este proyecto está diseñado nativamente para este entorno.
+    *   **Ventaja:** Antigravity lee automáticamente la carpeta `.antigravity/` para entender cómo trabajar mejor contigo.
+    *   *Alternativa:* Visual Studio Code o Cursor.
 
 ---
 
@@ -72,7 +73,31 @@ Para que la IA funcione, necesitas darle una "llave" (API Key) de Google Gemini.
         ```
     *   Cambia `your_api_key_here` por tu clave real que copiaste antes.
     *   Guarda el archivo.
-    *   **Nota:** Si vas a usar otros modelos (como OpenAI), también puedes configurarlo aquí.
+    *   **¿Es obligatoria?** SÍ. Sin ella, el cerebro del agente no funciona y no podrá responderte.
+
+---
+
+## 🏗️ Crear un Nuevo Proyecto (Usar como Plantilla)
+
+Si quieres crear un **nuevo** agente desde cero usando este código como base, tienes dos opciones:
+
+### Opción A: La forma fácil (Clonar y Renombrar)
+1.  Clona este repositorio de nuevo con otro nombre:
+    ```bash
+    git clone https://github.com/study8677/antigravity-workspace-template.git mi-nuevo-proyecto
+    ```
+2.  Entra en la carpeta y borra la carpeta oculta `.git` para empezar tu propio historial.
+3.  Sigue los pasos de instalación de arriba.
+
+### Opción B: La forma Pro (Usar el generador incluido)
+Este proyecto incluye una herramienta para "auto-replicarse".
+1.  Abre la terminal en la carpeta de ESTE proyecto.
+2.  Ejecuta el siguiente comando (cambia la ruta de destino).
+    *   **IMPORTANTE:** Si tu ruta tiene espacios (ej: `Ricardo Huertas`), ¡ponla entre comillas!
+    ```bash
+    python skills/agent-repo-init/scripts/init_project.py --project-name mi-agente --destination-root "C:\Ruta con Espacios\Donde\Guardarlo" --mode quick
+    ```
+3.  ¡Listo! Tendrás una copia limpia y lista para usar en esa carpeta.
 
 ---
 
@@ -139,6 +164,58 @@ Ahora viene lo divertido. Vamos a dar órdenes a tu agente.
 
 *   **El agente no hace nada o da error de API:**
     *   Revisa tu archivo `.env`. Asegúrate de que `GOOGLE_API_KEY` es correcta, no tiene espacios extra y el archivo se llama `.env` (no config.env ni nada parecido).
+
+---
+
+## ⚡ Skills y Workflows (Superpoderes para tu Agente)
+
+¡No **tienes** que añadir nada para empezar, pero **puedes** hacerlo para volverte un maestro!
+
+### ¿Qué son?
+*   **Skills (Habilidades):** Son como "apps" que instalas. Por ejemplo: una skill para manejar bases de datos, otra para diseñar webs, otra para escribir emails.
+    *   Este repo ya viene con la skill `agent-repo-init` (la que usaste para clonarlo).
+    *   **¿Cómo añado más?** Simplemente copia la carpeta de la skill dentro de `skills/`. El agente la leerá solo.
+
+*   **Workflows (Flujos de trabajo):** Son recetas paso a paso para tareas repetitivas.
+    *   Ejemplo: "Cada vez que termine una tarea, haz un commit en git".
+    *   Se guardan en `.agent/workflows/`.
+    *   El agente los sigue al pie de la letra para no olvidar nada.
+
+### ¿Los necesito ahora?
+*   **No para empezar.** Con lo básico ya puedes programar.
+*   **Sí, cuando crezcas.** Si notas que repites mucho lo mismo (ej: "crea un componente, luego el test, luego la historia..."), crea un Workflow para automatizarlo.
+
+---
+
+## 🎨 Para Proyectos de Diseño Web
+
+¿Vas a crear una web? ¡Genial! Este repositorio es perfecto porque el agente puede ver tu código, entender tu diseño y ayudarte a mejorarlo.
+
+1.  **Instala las herramientas web (Node.js):**
+    *   Descarga e instala [Node.js LTS](https://nodejs.org/) (necesario para React, Vue, Vite, etc.).
+
+2.  **Crea tu web dentro del proyecto:**
+    *   La mejor práctica es crear una carpeta `web` o `client` dentro de la raíz de tu nuevo proyecto para mantener el código de la web separado del código del agente.
+    *   Ejemplo para crear una web con Vite (muy rápido y moderno):
+        ```bash
+        npm create vite@latest web -- --template react
+        cd web
+        npm install
+        npm run dev
+        ```
+
+3.  **Dile al agente qué estás haciendo:**
+    *   Crea un archivo `.context/proyecto_web.md` y explícale tu visión:
+        ```markdown
+        # Visión del Proyecto Web
+        Estamos creando una landing page para una heladería.
+        Queremos colores pastel, tipografía divertida y muchas fotos de helados.
+        La web está en la carpeta /web.
+        ```
+
+4.  **Pídele que diseñe:**
+    *   "Crea un componente de React para mostrar los sabores de helado en /web/src/components/Sabores.jsx"
+    *   "Analiza el archivo /web/index.css y sugiere una paleta de colores veraniega."
 
 ---
 
